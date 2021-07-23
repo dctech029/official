@@ -1,10 +1,8 @@
 import React from 'react';
 import Laptops from './laptops';
 const Items = () => {
- return (
-     <div>
-         <Laptops/>
-     </div>
- )
+    return (
+            <Laptops/>
+    )
 }
 export default Items;
