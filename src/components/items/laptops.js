@@ -1,10 +1,13 @@
 import React from 'react';
 import laptopList from '../../storage/items.json'
-const Laptops = () => {
+const Laptops = (props) => {
+    const {openModal} = props
     const ss = laptopList;
     const loadLaptops = ()=> {
         return ss.map(item => (
-            <div className="col-lg-4 col-md-6 col-sm-12 col-12 ps-3 pe-3">
+            <div className="col-lg-4 col-md-6 col-sm-12 col-12 ps-3 pe-3" onClick={()=> {
+                openModal()
+            }}>
                 <div class="card shadow-lg p-3 mb-5 bg-body rounded">
                     <img class="card-img-top" src={item.image} alt="Card image cap"/>
                     <div class="card-body">
