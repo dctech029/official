@@ -8,7 +8,7 @@ const Laptops = (props) => {
             .then((responseJson) => {
                 setLaptopList(responseJson)
             })
-            .catch((error) => {
+            .catch((_error) => {
                 setLaptopList([])
             });
          }
