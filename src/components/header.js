@@ -5,7 +5,7 @@ const Header = (props)=> {
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
             <div className="container-fluid">
                 <a className="navbar-brand" href="#">
-                    <img src="img/dc_logo.webp" alt="" width="30" height="30" className="d-inline-block align-text-top me-1"/>
+                    <img src={process.env.NODE_ENV == 'development' ? "/img/dc_logo.webp" : "img/dc_logo.webp"} alt="" width="30" height="30" className="d-inline-block align-text-top me-1"/>
                     DC Tech
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
