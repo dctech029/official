@@ -1,11 +1,11 @@
 import React from 'react';
-import laptopList from '../../storage/items.json'
 const Laptops = (props) => {
+    const laptopList =  require(process.env.NODE_ENV == 'development' ? "../../storage/items.json" : "storage/items.json");
     const {openModal} = props
     const ss = laptopList;
     const loadLaptops = ()=> {
         return ss.map(item => (
-                <div className="card mb-3 p-4" disabled={!item.isavailable}  onClick={()=> {
+                <div className="card mb-3 p-lg-4 p-md-2 p-1" disabled={!item.isavailable}  onClick={()=> {
                     openModal()
                 }}>
                      <div className="embed-responsive embed-responsive-16by9">

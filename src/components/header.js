@@ -8,27 +8,26 @@ const Header = (props)=> {
                     <img src="img/dc_logo.webp" alt="" width="30" height="30" className="d-inline-block align-text-top me-1"/>
                     DC Tech
                 </a>
-                <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span className="navbar-toggler-icon"></span>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
                 </button>
-                <div className="collapse navbar-collapse" id="navbarNav">
-                    <ul className="navbar-nav">
-                        <li className="nav-item">
-                        <a className="nav-link active" aria-current="page" href="#">Home</a>
-                        </li>
-                        <li className="nav-item">
-                        <a className="nav-link" href="#">Features</a>
-                        </li>
-                        <li className="nav-item">
-                        <a className="nav-link" href="#">Pricing</a>
-                        </li>
-                        <li className="nav-item">
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Pricing</a>
+                    </li>
+                    <li className="nav-item">
                         <a className="nav-link" onClick={openAboutModal}>About</a>
                         </li>
                     </ul>
                 </div>
             </div>
-            
         </nav>
         // <nav className="navbar navbar-dark bg-dark" style={{backgroundColor: "#e3f2fd"}}>
         //     <a className="navbar-brand" href="#">
