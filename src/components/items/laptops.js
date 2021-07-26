@@ -1,6 +1,19 @@
-import React from 'react';
+import React,{useEffect,useState} from 'react';
 const Laptops = (props) => {
-    const laptopList =  require(process.env.NODE_ENV == 'development' ? "../../storage/items.json" : "https://dctech029.github.io/official/storage/items.json");
+    const [laptopList,setLaptopList] = useState([]);
+    useEffect(()=> {
+        function getJsonData() {
+            fetch('https://dctech029.github.io/official/storage/items.json')
+            .then((response) => response.json())
+            .then((responseJson) => {
+                setLaptopList(responseJson)
+            })
+            .catch((error) => {
+                setLaptopList([])
+            });
+         }
+         getJsonData()
+    })
     const {openModal} = props
     const ss = laptopList;
     const loadLaptops = ()=> {
