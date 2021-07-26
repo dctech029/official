@@ -1,0 +1,27 @@
+div[disabled]
+{
+  pointer-events: none;
+  opacity: 0.7;
+}
+.card {
+    min-width: 20rem;
+    max-width: 20rem;
+}
+.embed-responsive .card-img-top {
+    object-fit: cover;
+}
+.textLimit {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* number of lines to show */
+    -webkit-box-orient: vertical;
+ }
+ @media screen and (max-width: 992px) {
+    .card {
+      max-width: max-content;
+    }
+    .vl{
+        display: none;
+    }
+}

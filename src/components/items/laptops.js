@@ -5,28 +5,28 @@ const Laptops = (props) => {
     const ss = laptopList;
     const loadLaptops = ()=> {
         return ss.map(item => (
-            <div className="col-lg-4 col-md-6 col-sm-12 col-12 ps-3 pe-3" onClick={()=> {
-                openModal()
-            }}>
-                <div class="card shadow-lg p-3 mb-5 bg-body rounded">
-                    <img class="card-img-top" src={item.image} alt="Card image cap"/>
-                    <div class="card-body">
-                        <h5 class="card-title">{item.title}</h5>
-                        <p class="card-text">{item.specs}</p>
-                        <a href="#" class="btn btn-primary">Buy now for {item.price}</a>
+                <div className="card mb-3 p-4" disabled={!item.isavailable}  onClick={()=> {
+                    openModal()
+                }}>
+                     <div className="embed-responsive embed-responsive-16by9">
+                        <img className="embed-responsive-item card-img-top" src={item.image} alt="Card image cap"/>
+                     </div>
+                    <div className="card-body">
+                        <h5 className="card-title">{item.title}</h5>
+                        <p className="card-text textLimit">{item.specs}</p>
+                    </div>
+                    <div className="card-footer">
+                        <a href="#" className="btn btn-primary">Buy now for {item.price}</a>
                     </div>
                 </div>
-            </div>
         ))
     }
     return (
-        <div className="row">
-            <div className="card-group">
+            <div className="card-deck">
             {
                 loadLaptops()
             }
             </div>
-        </div>
     )
 }
 
