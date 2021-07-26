@@ -1,6 +1,6 @@
 import React from 'react';
 const Laptops = (props) => {
-    const laptopList =  require(process.env.NODE_ENV == 'development' ? "../../storage/items.json" : "storage/items.json");
+    const laptopList =  require(process.env.NODE_ENV == 'development' ? "../../storage/items.json" : "https://dctech029.github.io/official/storage/items.json");
     const {openModal} = props
     const ss = laptopList;
     const loadLaptops = ()=> {
