@@ -18,3 +18,8 @@ code {
 .card:hover{
   transform: scale(1.05);
 }
+
+@font-face { font-family: LucidaGrande; src: url('storage/LucidaGrande.ttf'); } 
+*{
+  font-family: "LucidaGrande";
+}

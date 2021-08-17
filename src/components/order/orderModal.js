@@ -1,7 +1,8 @@
-import React from 'react';
+import React,{useState} from 'react';
 import {Modal} from 'react-bootstrap';
 import firebase from '../../dbconfig/firebaseConnection';
 const OrderModal = (props)=>{
+    const [sample,setSample] = useState();
     const {isShow,closeModal} = props; 
     const onSubmitForm = async(e)=> {
         e.preventDefault();
@@ -39,7 +40,7 @@ const OrderModal = (props)=>{
                 </div>
                 <div className="form-group">
                     <label for="exampleInputPassword1">Name</label>
-                    <input type="text" className="form-control" id="exampleInputPassword1" placeholder="ex. Juan Dela Cruz"/>
+                    <input name="description" value={sample} onChange={setSample} type="text" className="form-control" id="exampleInputPassword1" placeholder="ex. Juan Dela Cruz"/>
                 </div>
                 <div className="form-group">
                     <label for="exampleInputPassword2">Complete Address</label>
