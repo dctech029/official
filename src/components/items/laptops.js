@@ -1,35 +1,34 @@
 import React,{useEffect,useState} from 'react';
+import firebase from '../../dbconfig/firebaseConnection';
 const Laptops = (props) => {
     const [laptopList,setLaptopList] = useState([]);
+    const db = firebase.firestore().collection("/items");
     useEffect(()=> {
-        function getJsonData() {
-            fetch('https://dctech029.github.io/official/storage/items.json')
-            .then((response) => response.json())
-            .then((responseJson) => {
-                setLaptopList(responseJson)
+        const laptops = [];
+        db.get().then(snapshot => {
+            snapshot.docs.forEach(item => {
+                laptops.push(item.data());
             })
-            .catch((_error) => {
-                setLaptopList([])
-            });
-         }
-         getJsonData()
-    })
+            console.log(laptops);
+            setLaptopList(laptops)
+        }).catch( 
+            err => console.log(err))
+    },[])
     const {openModal} = props
-    const ss = laptopList;
     const loadLaptops = ()=> {
-        return ss.map(item => (
-                <div className="card mb-3 p-lg-4 p-md-2 p-1" disabled={!item.isavailable}  onClick={()=> {
+        return laptopList.map((item,index) => (
+                <div key={index} className="card mb-3 p-lg-4 p-md-2 p-1" disabled={!item.is_available} onClick={()=> {
                     openModal()
                 }}>
                      <div className="embed-responsive embed-responsive-16by9">
-                        <img className="embed-responsive-item card-img-top" src={item.image} alt="Card image cap"/>
+                        <img className="embed-responsive-item card-img-top" src={item.product_images[0]} alt="Card image cap"/>
                      </div>
                     <div className="card-body">
-                        <h5 className="card-title">{item.title}</h5>
-                        <p className="card-text textLimit">{item.specs}</p>
+                        <h5 className="card-title">{item.product_name}</h5>
+                        <p className="card-text textLimit">{item.product_description}</p>
                     </div>
                     <div className="card-footer">
-                        <a href="#" className="btn btn-primary">Buy now for {item.price}</a>
+                        <a href="#" className="btn btn-primary">Buy now for {item.product_price}</a>
                     </div>
                 </div>
         ))
