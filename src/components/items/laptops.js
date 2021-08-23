@@ -2,21 +2,24 @@ import React,{useEffect} from 'react';
 import firebase from '../../dbconfig/firebaseConnection';
 import { useSelector,useDispatch } from 'react-redux';
 import { retrieveItems } from '../../reducers/itemsSlice';
-import { LazyLoadImage } from 'react-lazy-load-image-component';
+import { trackPromise} from 'react-promise-tracker';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 const Laptops = (props) => {
     const laptopList = useSelector((state) => state.items);
     const dispatch = useDispatch();
     const db = firebase.firestore().collection("/items");
     useEffect(()=> {
-        const laptops = [];
-        db.get().then(snapshot => {
-            snapshot.docs.forEach(item => {
-                laptops.push(item.data());
-            })
-            dispatch(retrieveItems(laptops))
-        }).catch( 
-            err => console.log(err))
+            async function loadData(){
+                const laptops = [];
+                const snapshot = await db.get();
+                snapshot.docs.forEach(item => {
+                    laptops.push(item.data());
+                })
+                dispatch(retrieveItems(laptops))
+            }
+            trackPromise(
+                loadData()
+            )
     },[])
     const {openModal} = props
     const LoadLaptops = ()=> {

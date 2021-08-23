@@ -15,7 +15,7 @@ const initialState = [{
 
 export const itemsSlice = createSlice({
   name: 'items',
-  initialState,
+  initialState: [],
   reducers: {
     retrieveItems: (_state,action) => {
         return action.payload
