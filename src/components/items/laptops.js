@@ -6,7 +6,6 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 const Laptops = (props) => {
     const laptopList = useSelector((state) => state.items);
-    const testing = useSelector(state => state)
     const dispatch = useDispatch();
     const db = firebase.firestore().collection("/items");
     useEffect(()=> {
@@ -22,18 +21,14 @@ const Laptops = (props) => {
     const {openModal} = props
     const LoadLaptops = ()=> {
         return laptopList.map((item,index) => (
-                <div key={index} className="card mb-3 p-lg-4 p-md-2 p-1"  onClick={()=> {
+                <div key={index} className="card shadow-lg p-3 mb-5 bg-white rounded"  onClick={()=> {
                     openModal()
                 }}>
                      <div className="embed-responsive embed-responsive-16by9">
-                        <div className="embed-responsive-item card-img-top">
-                        <LazyLoadImage 
-                            width="100%"
-                            height="100%"
-                            src={item.product_images[0]} 
-                            effect="blur"
+                        <img 
+                            className="border embed-responsive-item card-img-top"
+                            src={item.product_images[0]}
                             alt="Card image cap"/>
-                        </div>
                      </div>
                     <div className="card-body">
                         <h5 className="card-title">{item.product_name}</h5>
