@@ -12,6 +12,7 @@ import {
   Redirect,
   Route
 } from "react-router-dom";
+import { renderIntoDocument } from 'react-dom/test-utils';
 function App() {
   const [isShowOrderModal,setShowOrderModal] = useState(false);
   const closeModal = ()=> {
@@ -26,6 +27,7 @@ function App() {
       <Header/>
       <div className="container pt-3">
         <Switch>
+          <Redirect exact from="/" to="dashboard"/>
           <Route path="/gallery" exact>
             <Gallery />
           </Route>

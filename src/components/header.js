@@ -36,10 +36,10 @@ const Header = ()=> {
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto">
                     <div class="hori-selector"><div class="left"></div><div class="right"></div></div>
-                    <li class="nav-item">
+                    <li class="nav-item active">
                         <a class="nav-link" href="javascript:void(0);" onClick={()=> history.push("/dashboard")}><i class="fa fa-tachometer-alt"></i>Dashboard</a>
                     </li>
-                    <li class="nav-item active">
+                    <li class="nav-item">
                         <a class="nav-link" href="javascript:void(0);" onClick={()=> history.push("/products")}><i class="fa fa-address-book"></i>Products</a>
                     </li>
                     <li class="nav-item">
