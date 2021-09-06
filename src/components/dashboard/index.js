@@ -1,10 +1,12 @@
 import React from 'react'
 import Slideshow from './slideshow';
+import Footer from './footer';
 import "./index.css";
 const Dashboard = ()=> {
     return (
-        <div className="shadow-lg mb-5 bg-white rounded">
+        <div>
             <Slideshow/>
+            <Footer/>
         </div>
     )
 }

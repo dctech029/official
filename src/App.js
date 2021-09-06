@@ -25,24 +25,30 @@ function App() {
     <Router>
     <div>
       <Header/>
-      <div className="container pt-3">
         <Switch>
           <Redirect exact from="/" to="dashboard"/>
           <Route path="/gallery" exact>
-            <Gallery />
+            <div className="container pt-3">
+              <Gallery />
+            </div>
           </Route>
           <Route path="/dashboard">
-              <Dashboard/>
+            <div className="container p-0 pt-lg-3 pt-md-3">
+              <Dashboard />
+            </div>
           </Route>
           <Route path="/products" exact>
+          <div className="container pt-3">
               <Items openModal={openModal}/>
+          </div>
           </Route>
           <Route path="/about" exact>
+            <div className="container pt-3">
               <About/>
+            </div>
           </Route>
         </Switch>
         <Order isShow={isShowOrderModal} closeModal={closeModal}/>
-      </div>
     </div>
     </Router>
   );
