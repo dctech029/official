@@ -5,6 +5,7 @@ import Header from './components/header';
 import Order from './components/order';
 import About from './components/misc/about';
 import Gallery from './components/gallery';
+import Dashboard from './components/dashboard';
 import {useState} from 'react';
 import {
   BrowserRouter as Router,
@@ -12,7 +13,6 @@ import {
   Redirect,
   Route
 } from "react-router-dom";
-import { renderIntoDocument } from 'react-dom/test-utils';
 function App() {
   const [isShowOrderModal,setShowOrderModal] = useState(false);
   const closeModal = ()=> {
@@ -32,7 +32,7 @@ function App() {
             <Gallery />
           </Route>
           <Route path="/dashboard">
-              <Items openModal={openModal}/>
+              <Dashboard/>
           </Route>
           <Route path="/products" exact>
               <Items openModal={openModal}/>
