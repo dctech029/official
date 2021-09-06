@@ -1,0 +1,4 @@
+.btn-group .btn:focus{
+    background-color: white;
+    color: black;
+}

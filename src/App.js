@@ -9,35 +9,37 @@ import {useState} from 'react';
 import {
   BrowserRouter as Router,
   Switch,
-  Link
+  Redirect,
+  Route
 } from "react-router-dom";
 function App() {
   const [isShowOrderModal,setShowOrderModal] = useState(false);
-  const [isShowAboutModal,setShowAboutModal] = useState(false);
   const closeModal = ()=> {
     setShowOrderModal(false);
   }
   const openModal = ()=> {
     setShowOrderModal(true);
   }
-  const openAboutModal = ()=> {
-    setShowAboutModal(true);
-  }
-  const closeAboutModal = () => {
-    console.log("Hallow");
-    setShowAboutModal(false);
-  }
   return (
     <Router>
     <div>
-      <Header openAboutModal={openAboutModal}/>
+      <Header/>
       <div className="container pt-3">
         <Switch>
-          <Link to="/gallery" component={Gallery} />
-          <Link to="/" component={ <Items openModal={openModal}/>} />
+          <Route path="/gallery" exact>
+            <Gallery />
+          </Route>
+          <Route path="/dashboard">
+              <Items openModal={openModal}/>
+          </Route>
+          <Route path="/products" exact>
+              <Items openModal={openModal}/>
+          </Route>
+          <Route path="/about" exact>
+              <About/>
+          </Route>
         </Switch>
         <Order isShow={isShowOrderModal} closeModal={closeModal}/>
-        <About isShow={isShowAboutModal} closeModal={closeAboutModal}/>
       </div>
     </div>
     </Router>

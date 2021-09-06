@@ -20,8 +20,8 @@ const Videos = ()=> {
     return (
         <div className="row justify-content-center">
             {   videos.map(video => 
-                    <div className="col-6">
-                        <iframe height="300px" width="450px" src={video.link}/>
+                    <div className="col-lg-6 col-md-6 col-sm-12 col-12">
+                        <iframe height="300px" width="100%" src={video.link}/>
                         <div className="m-3">
                             <h5 className="card-title">{video.title}</h5>
                             <p className="card-text">{video.description}</p>

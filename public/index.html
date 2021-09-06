@@ -19,6 +19,7 @@
      crossorigin="anonymous"></script>
     <!-- CSS only -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <!--
       manifest.json provides metadata used when your web app is installed on a
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
@@ -50,7 +51,7 @@
     -->
   </body>
   <script>
-    function test(){
+  function test(){
   var tabsNewAnim = $('#navbarSupportedContent');
   var selectorNewAnim = $('#navbarSupportedContent').find('li').length;
   var activeItemNewAnim = tabsNewAnim.find('.active');
@@ -80,7 +81,33 @@
   });
 }
 $(document).ready(function(){
-  setTimeout(function(){ test(); });
+  
+  setTimeout(function(){ test(); },100);
+  $(".carousel").carousel({
+    //ปิดการเล่น auto
+    interval: false,
+    pause: true
+  });
+  $( ".carousel .carousel-inner" ).swipe( {
+    swipeLeft: function ( event, direction, distance, duration, fingerCount ) {
+      this.parent( ).carousel( 'next' );
+    },
+    swipeRight: function ( ) {
+      this.parent( ).carousel( 'prev' );
+    },
+    threshold: 0,
+    tap: function(event, target) {
+      // get the location: in my case the target is my link
+      window.location = $(this).find('.carousel-item.active a').attr('href');
+    },
+    //เอา  a ออกถ้าต้องการให้ slide ที่เป็น tag a สามารถคลิกได้
+    excludedElements:"label, button, input, select, textarea, .noSwipe"
+  } );
+  
+  $('.carousel .carousel-inner').on('dragstart', 'a', function () {
+    return false;
+  });  
+  
 });
 $(window).on('resize', function(){
   setTimeout(function(){ test(); }, 500);
@@ -88,34 +115,5 @@ $(window).on('resize', function(){
 $(".navbar-toggler").click(function(){
   setTimeout(function(){ test(); });
 });
-    $(document).ready(function(){
-      
-      $(".carousel").carousel({
-        //ปิดการเล่น auto
-        interval: false,
-        pause: true
-      });
-      
-      $( ".carousel .carousel-inner" ).swipe( {
-        swipeLeft: function ( event, direction, distance, duration, fingerCount ) {
-          this.parent( ).carousel( 'next' );
-        },
-        swipeRight: function ( ) {
-          this.parent( ).carousel( 'prev' );
-        },
-        threshold: 0,
-        tap: function(event, target) {
-          // get the location: in my case the target is my link
-          window.location = $(this).find('.carousel-item.active a').attr('href');
-        },
-        //เอา  a ออกถ้าต้องการให้ slide ที่เป็น tag a สามารถคลิกได้
-        excludedElements:"label, button, input, select, textarea, .noSwipe"
-      } );
-      
-      $('.carousel .carousel-inner').on('dragstart', 'a', function () {
-        return false;
-      });  
-      
-    });
   </script>
 </html>

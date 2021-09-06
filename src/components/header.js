@@ -1,6 +1,7 @@
 import React from 'react';
-const Header = (props)=> {
-    const {openAboutModal} = props;
+import { useHistory } from 'react-router';
+const Header = ()=> {
+    const history = useHistory();
     return (
         // <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         //         <a className="navbar-brand" href="#">
@@ -28,35 +29,31 @@ const Header = (props)=> {
         //         </div>
         // </nav>
         <nav class="navbar navbar-expand-custom navbar-mainbg">
-        <a class="navbar-brand navbar-logo" href="#"> <img className="d-inline-block align-top mr-1" src={process.env.NODE_ENV == 'development' ? "/img/dc_logo.webp" : "img/dc_logo.webp"} alt="" width="30" height="30"/> DCTech
-</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <i class="fas fa-bars text-white"></i>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ml-auto">
-                <div class="hori-selector"><div class="left"></div><div class="right"></div></div>
-                <li class="nav-item">
-                    <a class="nav-link" href="javascript:void(0);"><i class="fa fa-tachometer-alt"></i>Dashboard</a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="javascript:void(0);"><i class="fa fa-address-book"></i>Address Book</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="javascript:void(0);"><i class="fa fa-clone"></i>Components</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="javascript:void(0);"><i class="fa fa-calendar-alt"></i>Calendar</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="javascript:void(0);"><i class="fa fa-chart-bar"></i>Charts</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="javascript:void(0);"><i class="fa fa-copy"></i>Documents</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
+            <a class="navbar-brand navbar-logo" href="#"><img className="d-inline-block align-top mr-1" src={process.env.NODE_ENV == 'development' ? "/img/dc_logo.webp" : "img/dc_logo.webp"} alt="" width="30" height="30"/> DCTech </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-bars text-white"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <div class="hori-selector"><div class="left"></div><div class="right"></div></div>
+                    <li class="nav-item">
+                        <a class="nav-link" href="javascript:void(0);" onClick={()=> history.push("/dashboard")}><i class="fa fa-tachometer-alt"></i>Dashboard</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="javascript:void(0);" onClick={()=> history.push("/products")}><i class="fa fa-address-book"></i>Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="javascript:void(0);" onClick={()=> history.push("/gallery")}><i class="fa fa-clone"></i>Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="javascript:void(0);"><i class="fa fa-calendar-alt"></i>Contact Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="javascript:void(0);" onClick={()=> history.push('/about')}><i class="fa fa-chart-bar"></i>About</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
         // <nav className="navbar navbar-dark bg-dark" style={{backgroundColor: "#e3f2fd"}}>
         //     <a className="navbar-brand" href="#">
         //         <img src="/img/dc_logo.webp" width="40" height="40" className="d-inline-block align-top" alt=""/>
