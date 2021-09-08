@@ -5,21 +5,21 @@ const Slideshow = ()=> {
     return (
         <Carousel infiniteLoop dynamicHeight autoPlay>
             <div className="h-100">
-                <img className="carouselImage" loading="lazy" alt="" src="https://firebasestorage.googleapis.com/v0/b/dctech-official.appspot.com/o/first_image.jpeg?alt=media&token=12d65364-c9eb-4f17-9c24-7bd43336fd33" />
+                <img className="carouselImage" loading="lazy" alt="" src={process.env.NODE_ENV == 'development' ? "/img/first_image.jpeg" : "img/first_image.jpeg"} />
                 <div className="textWrapper">
                     <h1 className="font-weight-bold valign">DCTech</h1>
                     <p className="font-weight-bold valign">Place that you've dreamed of</p>
                 </div>
             </div>
             <div className="h-100">
-                <img className="carouselImage" loading="lazy" alt="" src="https://firebasestorage.googleapis.com/v0/b/dctech-official.appspot.com/o/second_image.webp?alt=media&token=6cf7743d-d689-47fc-87eb-72374f93925b"/>
+                <img className="carouselImage" loading="lazy" alt="" src={process.env.NODE_ENV == 'development' ? "/img/second_image.webp" : "img/second_image.webp"}/>
                 <div className="textWrapper">
                 <h1 className="font-weight-bold valign">Branded Items</h1>
                 <p className="font-weight-bold valign">Choose from different brands! </p>
                 </div>
             </div>
             <div className="h-100">
-                <img className="carouselImage" loading="lazy" alt="" src="https://firebasestorage.googleapis.com/v0/b/dctech-official.appspot.com/o/third_image.jpg?alt=media&token=cb40193c-c487-45cd-94a4-8b45fcbe1925" />
+                <img className="carouselImage" loading="lazy" alt="" src={process.env.NODE_ENV == 'development' ? "/img/third_image.jpg" : "img/third_image.jpg"} />
                 <div className="textWrapper">
                 <h1 className="font-weight-bold valign">Cheap but Quality</h1>
                 <p className="font-weight-bold valign">Does not compromise quality over price</p>

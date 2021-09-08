@@ -6,7 +6,7 @@ const Dashboard = ()=> {
     return (
         <div>
             <Slideshow/>
-            {/* <Footer/> */}
+            <Footer/>
         </div>
     )
 }
