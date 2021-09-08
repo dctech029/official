@@ -56,3 +56,23 @@ footer p { font-size:13px; color:#CCC; padding-bottom:0px; margin-bottom:8px;}
 .social_footer_ul li { padding-left:20px; padding-top:10px; float:left; }
 .social_footer_ul li a { color:#CCC; border:1px solid #CCC; padding:8px;border-radius:50%;}
 .social_footer_ul li i {  width:20px; height:20px; text-align:center;}
+.btn-floating{
+    width: 2.3125rem;
+    height: 2.3125rem;
+    border-radius: 50%;
+    padding: 0;
+    position: relative;
+}
+.btn-floating .fab{
+    width: 2.3125rem;
+    line-height: 2.3125rem;
+    font-family: "Font Awesome 5 Brands";
+}
+.btn-primary.focus, .btn-primary:focus, .btn-primary:hover {
+    color: #fff;
+    background-color: #0c56d0;
+}
+.btn-primary:hover {
+    background-color: #0f57cd;
+    border-color: #0e52c1;
+}
