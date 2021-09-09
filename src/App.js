@@ -6,6 +6,7 @@ import Order from './components/order';
 import About from './components/misc/about';
 import Gallery from './components/gallery';
 import Dashboard from './components/dashboard';
+import ContactUs from './components/contactus';
 import {useState} from 'react';
 import {
   BrowserRouter as Router,
@@ -41,6 +42,11 @@ function App() {
           <div className="container pt-3">
               <Items openModal={openModal}/>
           </div>
+          </Route>
+          <Route path="/contactus" exact>
+            <div className="container pt-3">
+              <ContactUs/>
+            </div>
           </Route>
           <Route path="/about" exact>
             <div className="container pt-3">
