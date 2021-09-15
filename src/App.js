@@ -7,6 +7,7 @@ import About from './components/misc/about';
 import Gallery from './components/gallery';
 import Dashboard from './components/dashboard';
 import ContactUs from './components/contactus';
+import Blogs from './components/blogs';
 import {useState} from 'react';
 import {
   BrowserRouter as Router,
@@ -51,6 +52,11 @@ function App() {
           <Route path="/about" exact>
             <div className="container pt-3">
               <About/>
+            </div>
+          </Route>
+          <Route path="/blogs">
+            <div className="container pt-3">
+              <Blogs/>
             </div>
           </Route>
         </Switch>

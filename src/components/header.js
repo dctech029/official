@@ -47,6 +47,9 @@ const Header = ()=> {
                         <a class="nav-link" href="javascript:void(0);" onClick={()=> history.push("/gallery")}><i class="fa fa-clone"></i>Gallery</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="javascript:void(0);" onClick={()=> history.push("/blogs")}><i class="fa fa-calendar-alt"></i>Blog</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="javascript:void(0);" onClick={()=> history.push("/contactus")}><i class="fa fa-calendar-alt"></i>Contact Us</a>
                     </li>
                     <li class="nav-item">
