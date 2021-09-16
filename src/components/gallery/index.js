@@ -5,9 +5,9 @@ const Gallery = ()=> {
     return (
         <div>
             <div className="row justify-content-center">
-                <div class="btn-group" role="group" aria-label="Basic example">
-                    <button type="button" class="btn btn-secondary">Images</button>
-                    <button type="button" class="btn btn-secondary" autoFocus="true">Videos</button>
+                <div className="btn-group" role="group" aria-label="Basic example">
+                    <button type="button" className="btn btn-secondary">Images</button>
+                    <button type="button" className="btn btn-secondary" autoFocus="true">Videos</button>
                 </div>
             </div>
             <hr></hr>

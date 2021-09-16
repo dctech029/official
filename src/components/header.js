@@ -28,32 +28,32 @@ const Header = ()=> {
         //             </ul>
         //         </div>
         // </nav>
-        <nav class="navbar navbar-expand-custom navbar-mainbg">
-            <a class="navbar-brand navbar-logo" href="#">
+        <nav className="navbar navbar-expand-custom navbar-mainbg">
+            <a className="navbar-brand navbar-logo" href="#">
                 <img className="d-inline-block align-top mr-1" src={process.env.NODE_ENV == 'development' ? "/img/dc_logo.webp" : "img/dc_logo.webp"} alt="" width="30" height="30"/>DCTech </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <i class="fas fa-bars text-white"></i>
+            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <i className="fas fa-bars text-white"></i>
             </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ml-auto">
-                    <div class="hori-selector"><div class="left"></div><div class="right"></div></div>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="javascript:void(0);" onClick={()=> history.push("/dashboard")}><i class="fa fa-tachometer-alt"></i>Dashboard</a>
+            <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul className="navbar-nav ml-auto">
+                    <div className="hori-selector"><div className="left"></div><div className="right"></div></div>
+                    <li className="nav-item active">
+                        <a className="nav-link" href="javascript:void(0);" onClick={()=> history.push("/dashboard")}><i className="fa fa-tachometer-alt"></i>Dashboard</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="javascript:void(0);" onClick={()=> history.push("/products")}><i class="fa fa-address-book"></i>Products</a>
+                    <li className="nav-item">
+                        <a className="nav-link" href="javascript:void(0);" onClick={()=> history.push("/products")}><i className="fa fa-address-book"></i>Products</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="javascript:void(0);" onClick={()=> history.push("/gallery")}><i class="fa fa-clone"></i>Gallery</a>
+                    <li className="nav-item">
+                        <a className="nav-link" href="javascript:void(0);" onClick={()=> history.push("/gallery")}><i className="fa fa-clone"></i>Gallery</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="javascript:void(0);" onClick={()=> history.push("/blogs")}><i class="fa fa-calendar-alt"></i>Blog</a>
+                    <li className="nav-item">
+                        <a className="nav-link" href="javascript:void(0);" onClick={()=> history.push("/blogs")}><i className="fa fa-calendar-alt"></i>Blog</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="javascript:void(0);" onClick={()=> history.push("/contactus")}><i class="fa fa-calendar-alt"></i>Contact Us</a>
+                    <li className="nav-item">
+                        <a className="nav-link" href="javascript:void(0);" onClick={()=> history.push("/contactus")}><i className="fa fa-calendar-alt"></i>Contact Us</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="javascript:void(0);" onClick={()=> history.push('/about')}><i class="fa fa-chart-bar"></i>About</a>
+                    <li className="nav-item">
+                        <a className="nav-link" href="javascript:void(0);" onClick={()=> history.push('/about')}><i className="fa fa-chart-bar"></i>About</a>
                     </li>
                 </ul>
             </div>

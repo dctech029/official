@@ -1,15 +1,21 @@
 import React from 'react';
 import Tips from './tips';
-import { useHistory } from 'react-router';
 import { Switch,Route } from 'react-router-dom';
+import Selection from './selection';
+import Whydctech from './whydctech';
 const Blogs = ()=> {
-    const history = useHistory();
     return(
         <div>
-            <button className="btn btn-primary" onClick={()=> history.push('/blogs/tips')}>To to tips</button>
+
             <Switch>
-                <Route path="/blogs/tips">
+                <Route path="/blogs" exact>
+                    <Selection/>
+                </Route>
+                <Route path="/blogs/tips" exact>
                     <Tips/>
+                </Route>
+                <Route path="/blogs/whydctech" exact>
+                    <Whydctech/>
                 </Route>
             </Switch>
         </div>
