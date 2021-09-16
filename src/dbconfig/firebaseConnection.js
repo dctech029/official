@@ -1,11 +1,11 @@
 import firebase from "firebase";
 var firebaseConfig = {
-    apiKey: "AIzaSyArfurivmc-TRCrSe3NI2LXCCXBqNhhEAs",
-    authDomain: "dctech-official.firebaseapp.com",
-    projectId: "dctech-official",
-    storageBucket: "dctech-official.appspot.com",
-    messagingSenderId: "601318115401",
-    appId: "1:601318115401:web:c9fc26ae4137f94d8c9798"
+    apiKey: process.env.REACT_APP_API_KEY,
+    authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+    projectId: process.env.REACT_APP_PROJECT_ID,
+    storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
+    messagingSenderId: process.env.REACT_APP_MESSAGING_ID,
+    appId: process.env.REACT_APP_APP_ID
 };
 
 const app = firebase.initializeApp(firebaseConfig);
