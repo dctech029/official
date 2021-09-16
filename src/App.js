@@ -9,6 +9,7 @@ import Dashboard from './components/dashboard';
 import ContactUs from './components/contactus';
 import Blogs from './components/blogs';
 import {useState} from 'react';
+import MessengerCustomerChat from 'react-messenger-customer-chat';
 import {
   BrowserRouter as Router,
   Switch,
@@ -60,6 +61,10 @@ function App() {
             </div>
           </Route>
         </Switch>
+        <MessengerCustomerChat
+          pageId="1240010709403709"
+          appId="279201470490004"
+        />,
         <Order isShow={isShowOrderModal} closeModal={closeModal}/>
     </div>
     </Router>
