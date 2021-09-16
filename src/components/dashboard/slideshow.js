@@ -1,25 +1,31 @@
 import React from 'react'
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
+import ImageLoader from 'react-loading-image';
 const Slideshow = ()=> {
+    const LoadingText = ()=> {
+        return (<div className="h-100 d-flex justify-content-center">
+            <h2 className="mt-3">Loading image...</h2>
+        </div>)
+    }
     return (
-        <Carousel infiniteLoop dynamicHeight autoPlay>
+        <Carousel infiniteLoop>
             <div className="h-100">
-                <img className="carouselImage" loading="lazy" alt="" src={process.env.NODE_ENV == 'development' ? "/img/first_image.jpeg" : "img/first_image.jpeg"} />
+                <ImageLoader className="carouselImage"  loading={()=><LoadingText/>} alt="" src={process.env.NODE_ENV == 'development' ? "/img/first_image.jpeg" : "img/first_image.jpeg"} />
                 <div className="textWrapper">
                     <h1 className="font-weight-bold valign">DCTech</h1>
                     <p className="font-weight-bold valign">Place that you've dreamed of</p>
                 </div>
             </div>
             <div className="h-100">
-                <img className="carouselImage" loading="lazy" alt="" src={process.env.NODE_ENV == 'development' ? "/img/second_image.webp" : "img/second_image.webp"}/>
+                <ImageLoader className="carouselImage"loading={()=><LoadingText/>} alt="" src={process.env.NODE_ENV == 'development' ? "/img/second_image.webp" : "img/second_image.webp"}/>
                 <div className="textWrapper">
                 <h1 className="font-weight-bold valign">Branded Items</h1>
                 <p className="font-weight-bold valign">Choose from different brands! </p>
                 </div>
             </div>
             <div className="h-100">
-                <img className="carouselImage" loading="lazy" alt="" src={process.env.NODE_ENV == 'development' ? "/img/third_image.jpg" : "img/third_image.jpg"} />
+                <ImageLoader className="carouselImage" loading={()=><LoadingText/>} alt="" src={process.env.NODE_ENV == 'development' ? "/img/third_image.jpg" : "img/third_image.jpg"} />
                 <div className="textWrapper">
                 <h1 className="font-weight-bold valign">Cheap but Quality</h1>
                 <p className="font-weight-bold valign">Does not compromise quality over price</p>

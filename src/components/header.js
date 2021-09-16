@@ -1,10 +1,8 @@
-import React,{useEffect} from 'react';
+import React from 'react';
 import { useHistory } from 'react-router';
 const Header = ()=> {
     const history = useHistory();
-    useEffect(()=> {
-        
-    },[])
+
     return (
         // <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         //         <a className="navbar-brand" href="#">
