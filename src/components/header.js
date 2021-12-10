@@ -29,7 +29,7 @@ const Header = ()=> {
         //             </ul>
         //         </div>
         // </nav>
-        <nav className="navbar navbar-expand-custom navbar-mainbg">
+        <nav id='myheader' className="navbar navbar-expand-custom navbar-mainbg">
             <a className="navbar-brand navbar-logo" href="#">
                 <img className="d-inline-block align-top mr-1" src={process.env.NODE_ENV == 'development' ? "/img/dc_logo.webp" : "img/dc_logo.webp"} alt="" width="30" height="30"/>DCTech </a>
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

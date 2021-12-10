@@ -64,7 +64,7 @@ function App() {
         <MessengerCustomerChat
           pageId={process.env.REACT_APP_FB_APP_ID}
           appId={process.env.REACt_APP_PAGE_ID}
-        />,
+        />
         <Order isShow={isShowOrderModal} closeModal={closeModal}/>
     </div>
     </Router>
