@@ -38,22 +38,22 @@ const Header = ()=> {
             <div className="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul className="navbar-nav ml-auto">
                     <div className="hori-selector"><div className="left"></div><div className="right"></div></div>
-                    <li className="nav-item active">
+                    <li className="nav-item active font-weight-bold">
                         <a className="nav-link" href="javascript:void(0);" onClick={()=> history.push("/dashboard")}><i className="fa fa-tachometer-alt"></i>Dashboard</a>
                     </li>
-                    <li className="nav-item">
+                    <li className="nav-item font-weight-bold">
                         <a className="nav-link" href="javascript:void(0);" onClick={()=> history.push("/products")}><i className="fa fa-address-book"></i>Products</a>
                     </li>
-                    <li className="nav-item">
+                    <li className="nav-item font-weight-bold">
                         <a className="nav-link" href="javascript:void(0);" onClick={()=> history.push("/gallery")}><i className="fa fa-clone"></i>Gallery</a>
                     </li>
-                    <li className="nav-item">
+                    <li className="nav-item font-weight-bold">
                         <a className="nav-link" href="javascript:void(0);" onClick={()=> history.push("/blogs")}><i className="fa fa-calendar-alt"></i>Blog</a>
                     </li>
-                    <li className="nav-item">
+                    <li className="nav-item font-weight-bold">
                         <a className="nav-link" href="javascript:void(0);" onClick={()=> history.push("/contactus")}><i className="fa fa-calendar-alt"></i>Contact Us</a>
                     </li>
-                    <li className="nav-item">
+                    <li className="nav-item font-weight-bold">
                         <a className="nav-link" href="javascript:void(0);" onClick={()=> history.push('/about')}><i className="fa fa-chart-bar"></i>About</a>
                     </li>
                 </ul>
