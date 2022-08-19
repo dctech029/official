@@ -76,3 +76,7 @@ footer p { font-size:13px; color:#CCC; padding-bottom:0px; margin-bottom:8px;}
     background-color: #0f57cd;
     border-color: #0e52c1;
 }
+.carousel{
+    border-radius: 1rem !important;
+    box-shadow: #000;
+}

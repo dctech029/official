@@ -8,6 +8,7 @@ import Gallery from './components/gallery';
 import Dashboard from './components/dashboard';
 import ContactUs from './components/contactus';
 import Blogs from './components/blogs';
+import ProductManagement from './components/management/product_management';
 import {useState} from 'react';
 import MessengerCustomerChat from 'react-messenger-customer-chat';
 import {
@@ -59,6 +60,9 @@ function App() {
             <div className="container pt-3">
               <Blogs/>
             </div>
+          </Route>
+          <Route path="/dcmanagement">
+            <ProductManagement/>
           </Route>
         </Switch>
         <MessengerCustomerChat
