@@ -1,10 +1,30 @@
 import React,{useState} from 'react';
 import firebase from '../../dbconfig/firebaseConnection';
 import { trackPromise} from 'react-promise-tracker';
+import { trackWindowScroll } from 'react-lazy-load-image-component';
+import {Editor, EditorState} from 'draft-js';
+import 'draft-js/dist/Draft.css';
 const ProductManagement = ()=> {
     const storage = firebase.storage();
+    const db = firebase.firestore();
     const [colorCount, setColorCount] = useState(1);
+    const [editorState, setEditorState] = useState(() =>
+    EditorState.createEmpty(),
+  );
     const [selectedFiles, setSelectedFiles] = useState([]);
+    const [productDetails,setProductDetails] = useState({
+        is_available : true,
+        product_brand: '',
+        product_colors : [],
+        product_cpu : '',
+        product_description: '',
+        product_hdd: '',
+        product_images: [],
+        product_name: '',
+        product_price: '',
+        product_ram: '',
+        quantity: ''
+    });
     const ColorPicker = () => {
         var htmlContent = [];
         for(var a= 0; a < colorCount; a++){
@@ -16,19 +36,49 @@ const ProductManagement = ()=> {
         const files = e.target.files;
         setSelectedFiles(files);
     }
-    const onFormSubmit = (e) => {
+    const onFormSubmit = async(e) => {
         e.preventDefault();
-        saveToDatabase()
-    }
-    const saveToDatabase = () => {
+        var fileUrls = [];
+        var colors = [];
+        let aa = document.getElementById('colorPickerContainer');
         for(var a = 0; a < selectedFiles.length; a++){
             const selectedFile = selectedFiles[a];
-            trackPromise(storage.ref(`${selectedFile.name}`).put(selectedFile).then((snapshot) => {
+            await trackPromise(storage.ref(`${selectedFile.name}`).put(selectedFile).then((snapshot) => {
                 snapshot.ref.getDownloadURL().then(function(downloadURL) {
+                    fileUrls.push(downloadURL);
                     console.log("File available at", downloadURL);
                 });
             }))
         }
+        let children = aa.children;
+        for(var i = 0; i < children.length; i++){
+            colors.push(children[i].value);
+        }
+
+        setProductDetails({
+            ...productDetails,
+            product_images: fileUrls,
+            product_colors: colors
+        })
+        await saveToDatabase(fileUrls,colors);
+    }
+    const onChangeEvent = (e) => {
+        setProductDetails({
+            ...productDetails,
+            [e.target.name ] : e.target.value 
+        })
+    }
+    const saveToDatabase = async(urls,colorss) => {
+        
+        const newObject = {
+            ...productDetails,
+            product_colors: colorss,
+            product_images: urls
+        }
+        console.log(newObject);
+        await db.collection("items").add(newObject); 
+        alert('Product successfully added.'); 
+        window.location.reload();
     }
     return (
         <div className='container  mt-5'>
@@ -36,38 +86,39 @@ const ProductManagement = ()=> {
                 <div className='col-6'>
                     <div class="form-group">
                         <label for="product_name">Product name</label>
-                        <input id="product_name" name='product_name' type="text" class="form-control" placeholder="Product name"/>
+                        <input id="product_name" onChange={onChangeEvent} name='product_name' type="text" class="form-control" placeholder="Product name"/>
                     </div>
                     <div class="form-group">
                         <label>Brand</label>
-                        <input name='product_brand' type="text" class="form-control" placeholder="Brand"/>
+                        <input name='product_brand' onChange={onChangeEvent} type="text" class="form-control" placeholder="Brand"/>
                     </div>
                     <div class="form-group">
                         <label>Product CPU</label>
-                        <input name='product_cpu' type="text" class="form-control" placeholder="Product CPU"/>
+                        <input name='product_cpu' onChange={onChangeEvent} type="text" class="form-control" placeholder="Product CPU"/>
                     </div>
                     <div class="form-group">
                         <label>Product HDD</label>
-                        <input name='product_hdd' type="text" class="form-control" placeholder="Product HDD"/>
+                        <input name='product_hdd' onChange={onChangeEvent} type="text" class="form-control" placeholder="Product HDD"/>
                     </div>
                     <div class="form-group">
                         <label>Description</label>
-                        <textarea class="form-control" rows="3" placeholder='Enter Description here'></textarea>
+                        <textarea name='product_description' class="form-control"  rows="3" placeholder='Enter Description here'></textarea>
+                        <Editor editorState={editorState} onChange={setEditorState} />;
                     </div>
                 </div>
                 <div className='col-6'>
                     <div class="form-group">
                         <label>Price</label>
-                        <input name='product_price' type="text" class="form-control" placeholder="Enter Product Price"/>
+                        <input name='product_price' onChange={onChangeEvent} type="text" class="form-control" placeholder="Enter Product Price"/>
                     </div>
                     <div class="form-group">
                         <label>Product Ram</label>
-                        <input name='product_ram' type="text" class="form-control" placeholder="Enter Product Ram"/>
+                        <input name='product_ram' onChange={onChangeEvent} type="text" class="form-control" placeholder="Enter Product Ram"/>
                     </div>
                     <div className='form-group'>
                         <label>Is Available</label>
                         <div class="form-group">
-                            <select class="form-control">
+                            <select class="form-control" onChange={onChangeEvent}>
                                 <option value={1}>Available</option>
                                 <option value={0}>Out of Stock</option>
                             </select>
@@ -76,7 +127,7 @@ const ProductManagement = ()=> {
                     <div class="form-group">
                         <label>Color/s</label>
                         <input style={{height:'20px', width:'40px'}} defaultValue={1} min={1} className='ml-1' type="number"  onChange={(e)=> setColorCount(e.target.value)}/>
-                        <div className='container row'>
+                        <div id="colorPickerContainer" className='container row'>
                             <ColorPicker/>
                         </div>
                     </div>
