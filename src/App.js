@@ -8,6 +8,7 @@ import Gallery from './components/gallery';
 import Dashboard from './components/dashboard';
 import ContactUs from './components/contactus';
 import Blogs from './components/blogs';
+import PrivacyPolicy from './components/misc/privacypolicy';
 import ProductManagement from './components/management/product_management';
 import {useState} from 'react';
 import MessengerCustomerChat from 'react-messenger-customer-chat';
@@ -54,6 +55,11 @@ function App() {
           <Route path="/about" exact>
             <div className="container pt-3">
               <About/>
+            </div>
+          </Route>
+          <Route path="/un_privacypolicy" exact>
+            <div className="container pt-3">
+              <PrivacyPolicy/>
             </div>
           </Route>
           <Route path="/blogs">

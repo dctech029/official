@@ -2,7 +2,9 @@ import React from 'react';
 const About = ()=> {
     return (
         <div className="container">
-            <img src="img/dc_logo.webp" height="80px" width="80px"/>
+            <img src="img/dc_logo.webp" style={{
+                borderRadius: "50%"
+            }} height="100px" width="100px"/>
             <h1>DC Tech
                
             </h1>

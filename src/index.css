@@ -1,10 +1,14 @@
+@font-face {
+	font-family: 'KanitFont';
+	src: url('./fonts/Kanit-Regular.ttf') format('truetype');
+	/* Add additional font formats and paths if needed */
+}
 body {
   margin: 0;
-  /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif; */
+
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-family: 'KanitFont'
 }
 html {
     overflow: scroll;
@@ -19,9 +23,11 @@ html {
     background: #FF0000;
 }
 
+
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  /* font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace; */
+	font-family: 'KanitFont'
 }
 .card{
   cursor: pointer;
@@ -38,7 +44,8 @@ code {
 /* @import url('https://fonts.googleapis.com/css?family=Roboto'); */
 
 body{
-	font-family: 'Roboto', sans-serif;
+	/* font-family: 'Roboto', sans-serif; */
+	font-family: 'KanitFont'
 }
 * {
 	margin: 0;
@@ -92,7 +99,7 @@ i {
 	right: 20px;
 	top: 10px;
 	font-size: 14px;
-	font-family: "Font Awesome 5 Free";
+	/* font-family: "Font Awesome 5 Free"; */
 	display: inline-block;
 	padding-right: 3px;
 	vertical-align: middle;
@@ -202,3 +209,27 @@ i {
 		left: -25px;
 	}
 }
+
+.navbar-brand {
+	letter-spacing: 3px;
+	
+	color: white;
+  }
+  
+  .navbar-brand:hover {
+	  color: white;
+  }
+  
+  .navbar-scroll .nav-link,
+  .navbar-scroll .fa-bars {
+	color: white;
+  }
+  
+  .navbar-scrolled .nav-link,
+  .navbar-scrolled .fa-bars {
+	color: white;
+  }
+  
+  .navbar-scrolled {
+	background-color: #ffede7;
+  }

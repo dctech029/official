@@ -7,10 +7,19 @@ import { Provider } from 'react-redux'
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 
 import {LoadingSpinerComponent} from './loader';
-ReactDOM.render(
+// ReactDOM.render(
+//   <Provider store={store}>
+//     <App />
+//     <LoadingSpinerComponent/>
+//   </Provider>,
+//   document.getElementById('root')
+// );
+
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
   <Provider store={store}>
     <App />
     <LoadingSpinerComponent/>
   </Provider>,
-  document.getElementById('root')
 );
