@@ -3,7 +3,7 @@ import firebase from '../../dbconfig/firebaseConnection';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import { trackPromise } from 'react-promise-tracker';
-const AddProductModal = () => {
+const AddProductModal = ({close}) => {
     const [colorCount, setColorCount] = useState(1);
     const [selectedFiles, setSelectedFiles] = useState([]);
     const [productDetails, setProductDetails] = useState({
@@ -36,14 +36,20 @@ const AddProductModal = () => {
         var fileUrls = [];
         var colors = [];
         let aa = document.getElementById('colorPickerContainer');
+        
         for (var a = 0; a < selectedFiles.length; a++) {
             const selectedFile = selectedFiles[a];
-            await trackPromise(storage.ref(`${selectedFile.name}`).put(selectedFile).then((snapshot) => {
-                snapshot.ref.getDownloadURL().then(function (downloadURL) {
-                    fileUrls.push(downloadURL);
-                    console.log("File available at", downloadURL);
-                });
-            }))
+            const snapshot =  await storage.ref(`${selectedFile.name}`).put(selectedFile);
+            const downloadUrl = await snapshot.ref.getDownloadURL();
+            fileUrls.push(downloadUrl);
+            console.log("File available at", downloadUrl);
+            
+            // await trackPromise(storage.ref(`${selectedFile.name}`).put(selectedFile).then((snapshot) => {
+            //     snapshot.ref.getDownloadURL().then(function (downloadURL) {
+            //         fileUrls.push(downloadURL);
+            //         console.log("File available at", downloadURL);
+            //     });
+            // }))
         }
         let children = aa.children;
         for (var i = 0; i < children.length; i++) {
@@ -83,11 +89,12 @@ const AddProductModal = () => {
         console.log(newObject);
         await db.collection("items").add(newObject);
         alert('Product successfully added.');
-        window.location.reload();
+        close();
+        // window.location.reload();
     }
     return (
         <div className="container">
-        <form onSubmit={onFormSubmit} className='row'>
+        <form onSubmit={async (e) => await trackPromise(onFormSubmit(e))} className='row'>
             <div className='col-6'>
                 <div class="form-group">
                     <label for="product_name">Product name</label>
@@ -145,7 +152,7 @@ const AddProductModal = () => {
                 </div>
             </div>
             <div className="col-12 d-flex justify-content-end">
-                <button type='button' className='btn btn-secondary mr-1 mt-5'>Cancel</button>
+                <button type='button' className='btn btn-secondary mr-1 mt-5' onClick={() => close()}>Cancel</button>
                 <button type='submit' className='btn btn-primary mt-5'>Save</button>
             </div>
         </form>

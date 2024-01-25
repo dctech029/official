@@ -38,7 +38,7 @@ function App() {
             </div>
           </Route>
           <Route path="/dashboard">
-            <div className="container p-0 pt-lg-3 pt-md-3">
+            <div className="container p-0 p-3 pt-md-3">
               <Dashboard />
             </div>
           </Route>

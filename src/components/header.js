@@ -62,14 +62,13 @@ const Header = ()=> {
 
 
 <nav class="navbar navbar-expand-lg navbar-scroll shadow-0" style={{backgroundColor:"#5161ce",color: "white"}}>
-    
   <div class="container">
   <a className="navbar-brand navbar-logo align-items-center d-flex justify-content-center" href="#">
         <img className="d-inline-block align-top mr-3 text-center" style={{
           borderRadius: "50%"
-        }} src={process.env.NODE_ENV == 'development' ? "/img/dc_logo.webp" : "img/dc_logo.webp"} alt="" width="50" height="50"/><span style={{fontSize:30}}>DC Tech</span> </a>
+        }} src={process.env.NODE_ENV == 'development' ? "/img/dc_logo.webp" : "img/dc_logo.webp"} alt="" width="50" height="50"/><span style={{fontSize:30}}>DCTech</span> </a>
     {/* <a class="navbar-brand" href="#">DC Technologies</a> */}
-    <button class="navbar-toggler ps-0" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarExample01"
+    <button class="navbar-toggler ps-0" type="button" data-toggle="collapse" data-target="#navbarExample01"
       aria-controls="navbarExample01" aria-expanded="false" aria-label="Toggle navigation">
       <span class="d-flex justify-content-start align-items-center">
         <i class="fas fa-bars"></i>

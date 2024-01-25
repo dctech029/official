@@ -1,5 +1,6 @@
 import React from 'react';
 import { Modal } from 'react-bootstrap';
+import parse from 'html-react-parser';
 const ItemDetails = (props) => {
     const {isShow,closeModal,item} = props;
     return (
@@ -53,7 +54,7 @@ const ItemDetails = (props) => {
             <p>Brand : {item.product_brand}</p>
             <hr/>
             Description: 
-            <p className="description">{item.product_description}</p>
+            <p className="description">{parse(item.product_description)}</p>
             <hr/>
             <p>Proccessor: {item.product_cpu}</p>
             <hr/>

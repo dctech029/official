@@ -4,6 +4,7 @@ import { useSelector,useDispatch } from 'react-redux';
 import { retrieveItems } from '../../reducers/itemsSlice';
 import { trackPromise} from 'react-promise-tracker';
 import ItemDetails from './itemdetails';
+import parse from 'html-react-parser';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 const Laptops = (props) => {
     const laptopList = useSelector((state) => state.items);
@@ -36,7 +37,7 @@ const Laptops = (props) => {
                      </div>
                     <div className="card-body">
                         <h5 className="card-title">{item.product_name}</h5>
-                        <p className="card-text textLimit">{item.product_description}</p>
+                        <p className="card-text textLimit">{parse(item.product_description)}</p>
                         <a href="javascript:void(0)" onClick={
                             ()=> {
                                 setSelectedItem(item)
@@ -47,7 +48,7 @@ const Laptops = (props) => {
                     <div className="card-footer">
                         <button  onClick={()=> {
                             openModal()
-                        }} className="btn btn-primary">Buy now for {item.product_price}</button>
+                        }} className="btn btn-primary">Buy now for ₱ {item.product_price}</button>
                     </div>
                 </div>
         ))

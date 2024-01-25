@@ -12,7 +12,10 @@ const ProductManagement = () => {
         const arr = [];
         const productsArr = await db.collection("items").get();
         productsArr.docs.forEach(element => {
-            arr.push(element.data());
+            arr.push({
+                ...element.data(),
+                id: element.id
+            });
         });
         setProducts(arr);
     }
@@ -20,7 +23,11 @@ const ProductManagement = () => {
         const MySwal = withReactContent(Swal)
         MySwal.fire({
             title: "Edit Product",
-            html: <EditProductModal product={product}/>,
+            html: <EditProductModal product={product} 
+                        close={async() => {
+                            MySwal.close();
+                            await getAllProducts();
+                        }}/>,
             showCancelButton: false,
             showConfirmButton: false,
             showDenyButton: false,
@@ -31,7 +38,10 @@ const ProductManagement = () => {
         const MySwal = withReactContent(Swal)
         MySwal.fire({
             title: "Add Product",
-            html: <AddProductModal/>,
+            html: <AddProductModal close={async() => {
+                MySwal.close();
+                await getAllProducts();
+            }}/>,
             showCancelButton: false,
             showConfirmButton: false,
             showDenyButton: false,
@@ -46,7 +56,7 @@ const ProductManagement = () => {
     }, [])
     return (
         <div className='container  mt-5'>
-            <div className='row'>
+            <div className='row mb-3'>
                 <button className='btn btn-primary' onClick={() => {
                     showAddProductModal();
                 }}>Add Product</button>
@@ -64,7 +74,7 @@ const ProductManagement = () => {
                     {
                         products.map((item,index) => (
                             <tr>
-                                <th scope="row">{index + 1}</th>
+                                <th scope="row">{item.id}</th>
                                 <td>{item.product_brand}</td>
                                 <td>{item.product_cpu}</td>
                                 <td>{item.product_hdd}</td>
